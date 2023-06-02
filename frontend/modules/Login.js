@@ -32,14 +32,6 @@ export default class Login {
         this.cleanUp()
         if (!error) el.submit()
     }
-    // showMessages(msg) {
-    //     const el = document.createElement('div')
-    //     el.classList = "alert alert-danger my-3"
-    //     el.innerText = msg
-    //     this.p.appendChild(el)
-    // }
-    // cleanUp() {
+ 
 
-    //     //window.location.reload()
-    // }
 }
