@@ -1,3 +1,4 @@
+/*
 import validator from 'validator'
 export default class Login {
     constructor(fromClass) {
@@ -43,3 +44,5 @@ export default class Login {
     //     //window.location.reload()
     // }
 }
+
+*/
