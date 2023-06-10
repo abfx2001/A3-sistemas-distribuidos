@@ -3,10 +3,13 @@ const { async } = require('regenerator-runtime')
 const validator = require('validator')
 
 const ContatoSchema = new mongoose.Schema({
-    nome: { type: String, required: true },
-    sobrenome: { type: String, required: false, default: '' },
-    email: { type: String, required: false, default: '' },
+    compromisso: { type: String, required: true },
+    data: {type: String, required: true},
+    tipoConsulta: {type: String, required: true},
+    local: {type: String, required: false, default: '' },
+    nomeContato: { type: String, required: false, default: '' },
     telefone: { type: String, required: false, default: '' },
+    email: { type: String, required: false, default: '' },
     criadoEm: { type: Date, default: Date.now },
 })
 
@@ -27,7 +30,7 @@ Contato.prototype.register = async function () {
 Contato.prototype.valida = function () {
     this.cleanUp()
     if (this.body.email && !validator.isEmail(this.body.email)) this.errors.push('E-mail inválido.')
-    if (!this.body.nome) this.errors.push('Nome é um campo obrigatório!')
+    if (!this.body.compromisso) this.errors.push('Compromisso é um campo obrigatório!')
     if (!this.body.email && !this.body.telefone) {
         this.errors.push('Pelo menos um contato deve ser enviado: e-mail ou telefone.')
     }
@@ -41,10 +44,13 @@ Contato.prototype.cleanUp = function () {
     }
 
     this.body = {
-        nome: this.body.nome,
-        sobrenome: this.body.sobrenome,
+        compromisso: this.body.compromisso,
+        data: this.body.data,
+        tipoConsulta: this.body.tipoConsulta,
+        local: this.body.local,
+        nomeContato: this.body.nomeContato,
+        telefone: this.body.telefone,
         email: this.body.email,
-        telefone: this.body.telefone
     }
 }
 
