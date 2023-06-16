@@ -18,3 +18,5 @@
 * Natalia Reis Martins - 820142521
 * Sameck - 322212223
 * Samuel Ribeiro - 12722212004
+* Vitor Soares Lourenço - 1222010637
+* Daniel Correia Rodrigues - 32215905
