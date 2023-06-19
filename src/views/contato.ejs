@@ -11,7 +11,7 @@
       <% if (contato._id) { %>
       <form action="/contato/edit/<%= contato._id %>" method="POST">
       <% } else {%>
-        <form action="/contato/register" method="POST">
+        <form action="/contato/register" method="POST" class="form-cadastro">
       <% } %>
         <input type="hidden" name="_csrf" value=<%= csrfToken %>>
         <div class="form-group">
@@ -26,9 +26,16 @@
           <label>Tipo de Consulta</label>
           <input value="<%= contato.tipoConsulta %>" type="text" class="form-control" name="tipoConsulta">
         </div>
-        <div class="form-group">
-          <label>Local</label>
-          <input value="<%= contato.local %>" type="text" class="form-control" name="local">
+        <div class="row">
+          <div class="form-group col-lg-4">
+            <label>CEP</label>
+            <input value="" type="text" class="form-control" name="cep" placeholder="Digite o CEP">
+            <button type="submit" class="btn btn-primary btnCep">Pesquisar</button>
+          </div>
+          <div class="form-group col-lg-8">
+            <label>Local</label>
+            <input value="<%= contato.local %>" type="text" class="form-control local" name="local" placeholder="Caso não saiba o CEP, digite o local" id="local">
+          </div>
         </div>
         <div class="form-group">
           <label>Nome do Médico ou Contato</label>
